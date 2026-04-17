@@ -19,5 +19,30 @@ public class NextMain {
         /* -------------------------------------------------------------------- */
         var airplane = Movie.getMovie("C", "Airplane");
         airplane.watchMovie();
+
+        var plane = new Comedy("Airplane");
+        plane.watchComedy();
+
+        Object unknowObject = Movie.getMovie("C", "Airplane");
+        if (unknowObject.getClass().getSimpleName() == "Comedy") {
+            Comedy c = (Comedy) unknowObject;
+            c.watchComedy();
+        } else if (unknowObject instanceof Adventure) {
+            ((Adventure) unknowObject).watchAdventure();
+        } else if (unknowObject instanceof ScienceFiction syfy) {
+            syfy.watchScienceFiction();
+        }
+
+        Car car = new Car("2022 Blue Ferrari 296 GTS");
+        runRace(car);
+
+        Car ferrari = new GasPoweredCar("2022 Blue Ferrari 296 GTS", 10.0, 6);
+        runRace(ferrari);
+    }
+
+    public static void runRace(Car car) {
+
+        car.startEngine();
+        car.drive();
     }
 }
